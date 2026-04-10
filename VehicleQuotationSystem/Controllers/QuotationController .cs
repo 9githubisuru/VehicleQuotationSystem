@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+//using QuotationAPI.Repositories;
 using QuotationAPI.Services;
 
 namespace QuotationAPI.Controllers
@@ -8,6 +9,12 @@ namespace QuotationAPI.Controllers
     public class QuotationController : ControllerBase
     {
         private readonly ExcelService _service = new ExcelService();
+        //private readonly QuotationRepository _repository;
+
+        //public QuotationController(QuotationRepository repository)
+        //{
+        //    _repository = repository;
+        //}
 
         [HttpPost("upload")]
         public IActionResult Upload(IFormFile file)
@@ -18,6 +25,16 @@ namespace QuotationAPI.Controllers
             var result = _service.ReadExcel(file);
 
             return Ok(result);
+            //var data = _service.ReadExcel(file);
+
+            //// ✅ SAVE TO DB
+            //_repository.SaveQuotation(data.Vehicles);
+
+            //return Ok(new
+            //{
+            //    message = "Data inserted successfully",
+            //    count = data.Vehicles.Count
+            //});
         }
     }
 }

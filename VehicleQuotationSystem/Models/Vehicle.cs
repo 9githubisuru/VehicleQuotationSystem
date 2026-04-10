@@ -31,5 +31,7 @@
         public string EXCLUDTAXTYPE { get; set; }
         public string FDNUMPASSEN { get; set; }
         public string ISNEWDUPQUOT { get; set; }
+
+        public List<Cover> Covers { get; set; }
     }
 }
