@@ -39,15 +39,52 @@ namespace QuotationAPI.Repositories
 
                     vehicleCmd.CommandText = @"
                     INSERT INTO FLEET.T_VEHICLE (
-                        FDVNO1, FDVNO2, FDPROV, FDVEHIID
+                        FDVNO1, FDVNO2, FDPROV, FDTPROV, FDTVNO1, FDTVNO2,
+                        FDCHANO, POLICYTYPENAME, POLID, FDVEHICLECATEGORY,
+                        FDVEHITYPE, FDVEHIID, SUBCATE, FDBUSITYPE,
+                        FDPERIOD, FDPERIODID, FDDAYS, FDVEHITRAIL, FDSINGVEHI,
+                        FDYEAR, FDISPOLFEE, FDPERMENTVEH, FDVEHCATEG,
+                        FDVEHVAL, FDTRAVAL, ISINCLTAX, EXCLUDTAXTYPE,
+                        FDNUMPASSEN, ISNEWDUPQUOT
                     ) VALUES (
-                        :FDVNO1, :FDVNO2, :FDPROV, :FDVEHIID
+                        :FDVNO1, :FDVNO2, :FDPROV, :FDTPROV, :FDTVNO1, :FDTVNO2,
+                        :FDCHANO, :POLICYTYPENAME, :POLID, :FDVEHICLECATEGORY,
+                        :FDVEHITYPE, :FDVEHIID, :SUBCATE, :FDBUSITYPE,
+                        :FDPERIOD, :FDPERIODID, :FDDAYS, :FDVEHITRAIL, :FDSINGVEHI,
+                        :FDYEAR, :FDISPOLFEE, :FDPERMENTVEH, :FDVEHCATEG,
+                        :FDVEHVAL, :FDTRAVAL, :ISINCLTAX, :EXCLUDTAXTYPE,
+                        :FDNUMPASSEN, :ISNEWDUPQUOT
                     )";
 
-                    vehicleCmd.Parameters.Add(new OracleParameter("FDVNO1", vehicle.FDVNO1?.Trim()));
-                    vehicleCmd.Parameters.Add(new OracleParameter("FDVNO2", vehicle.FDVNO2?.Trim()));
-                    vehicleCmd.Parameters.Add(new OracleParameter("FDPROV", vehicle.FDPROV));
-                    vehicleCmd.Parameters.Add(new OracleParameter("FDVEHIID", vehicle.FDVEHIID));
+                    vehicleCmd.Parameters.Add("FDVNO1", vehicle.FDVNO1?.Trim());
+                    vehicleCmd.Parameters.Add("FDVNO2", vehicle.FDVNO2?.Trim());
+                    vehicleCmd.Parameters.Add("FDPROV", vehicle.FDPROV);
+                    vehicleCmd.Parameters.Add("FDTPROV", vehicle.FDTPROV);
+                    vehicleCmd.Parameters.Add("FDTVNO1", vehicle.FDTVNO1);
+                    vehicleCmd.Parameters.Add("FDTVNO2", vehicle.FDTVNO2);
+                    vehicleCmd.Parameters.Add("FDCHANO", vehicle.FDCHANO);
+                    vehicleCmd.Parameters.Add("POLICYTYPENAME", vehicle.POLICYTYPENAME);
+                    vehicleCmd.Parameters.Add("POLID", vehicle.POLID);
+                    vehicleCmd.Parameters.Add("FDVEHICLECATEGORY", vehicle.FDVEHICLECATEGORY);
+                    vehicleCmd.Parameters.Add("FDVEHITYPE", vehicle.FDVEHITYPE);
+                    vehicleCmd.Parameters.Add("FDVEHIID", vehicle.FDVEHIID);
+                    vehicleCmd.Parameters.Add("SUBCATE", vehicle.SUBCATE);
+                    vehicleCmd.Parameters.Add("FDBUSITYPE", vehicle.FDBUSITYPE);
+                    vehicleCmd.Parameters.Add("FDPERIOD", vehicle.FDPERIOD);
+                    vehicleCmd.Parameters.Add("FDPERIODID", vehicle.FDPERIODID);
+                    vehicleCmd.Parameters.Add("FDDAYS", vehicle.FDDAYS);
+                    vehicleCmd.Parameters.Add("FDVEHITRAIL", vehicle.FDVEHITRAIL);
+                    vehicleCmd.Parameters.Add("FDSINGVEHI", vehicle.FDSINGVEHI);
+                    vehicleCmd.Parameters.Add("FDYEAR", vehicle.FDYEAR);
+                    vehicleCmd.Parameters.Add("FDISPOLFEE", vehicle.FDISPOLFEE);
+                    vehicleCmd.Parameters.Add("FDPERMENTVEH", vehicle.FDPERMENTVEH);
+                    vehicleCmd.Parameters.Add("FDVEHCATEG", vehicle.FDVEHCATEG);
+                    vehicleCmd.Parameters.Add("FDVEHVAL", vehicle.FDVEHVAL);
+                    vehicleCmd.Parameters.Add("FDTRAVAL", vehicle.FDTRAVAL);
+                    vehicleCmd.Parameters.Add("ISINCLTAX", vehicle.ISINCLTAX);
+                    vehicleCmd.Parameters.Add("EXCLUDTAXTYPE", vehicle.EXCLUDTAXTYPE);
+                    vehicleCmd.Parameters.Add("FDNUMPASSEN", vehicle.FDNUMPASSEN);
+                    vehicleCmd.Parameters.Add("ISNEWDUPQUOT", vehicle.ISNEWDUPQUOT);
 
                     //Insert Vehicle Details 
                     vehicleCmd.ExecuteNonQuery();
