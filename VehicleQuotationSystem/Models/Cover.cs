@@ -15,8 +15,6 @@ namespace QuotationAPI.Models
         public string NOOFPASS { get; set; }
         public string IS_SELECTED { get; set; }
         public string RATECODE { get; set; }
-        //public OracleDbType FDVNO2 { get; internal set; }
-        //public OracleDbType FDVNO1 { get; internal set; }
-        
+       
     }
 }

@@ -93,7 +93,7 @@ namespace QuotationAPI.Services
                     FDNUMPASSEN = vehicleSheet.Cells[row, 28].Text,
                     ISNEWDUPQUOT = vehicleSheet.Cells[row, 29].Text,
 
-                    // ✅ Attach covers
+                    // Attach covers
                     Covers = allCovers.Select(c => new Cover
                     {
                         FDVN01 = c.FDVN01,
